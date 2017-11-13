@@ -17,6 +17,7 @@ class MyApplication : Application(), AnkoLogger {
     fun setupData() {
         var realm = Realm.getDefaultInstance()
         val articles = realm.where(Article::class.java).findAll()
+        info { "count:${articles.count()}" }
         if (articles.count() > 0) {
             return
         }
